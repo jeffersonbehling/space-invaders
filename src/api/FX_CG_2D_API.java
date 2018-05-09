@@ -34,7 +34,7 @@ public abstract class FX_CG_2D_API{
         this.canvas.setFocusTraversable(true);
         this.gc = canvas.getGraphicsContext2D();
 
-        // Definição de callbacks para mouse e teclado. Os métodos são abstratos para a aplicação do jogo implementar.
+        // Definicao de callbacks para mouse e teclado. Os metodos sao abstratos para a aplicacao do jogo implementar.
         this.gc.getCanvas().setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent e){cliqueDoMouse(e);}
@@ -62,13 +62,13 @@ public abstract class FX_CG_2D_API{
 
     }
     
-    /** Método para desenho de pontos2D nas coordenadas X e Y.
+    /** Metodo para desenho de pontos2D nas coordenadas X e Y.
     */     
     public void ponto(double x, double y){
     	ponto(x, y, this.gc.getLineWidth());
     }
     
-    /** Método para desenho de pontos2D nas coordenadas X e Y com tamanho TAM.
+    /** Metodo para desenho de pontos2D nas coordenadas X e Y com tamanho TAM.
      */
     public void ponto(double x, double y, double tam){
     	double largura = this.gc.getLineWidth();
@@ -83,10 +83,10 @@ public abstract class FX_CG_2D_API{
     }
     
     
-    /** Método para desenho de círculos sólidos ou apenas com a linha de contorno.
-     * O círculo é desenhado nas coordenadas [x,y], com largura l e altura a. Se 
-     * o parâmetro estilo for Estilo.PREENCHIDO, ele desenhado sólido, caso contrário, apenas
-     * é desenhado o contorno da forma.*/
+    /** Metodo para desenho de circulos solidos ou apenas com a linha de contorno.
+     * O circulo eg desenhado nas coordenadas [x,y], com largura l e altura a. Se 
+     * o parametro estilo for Estilo.PREENCHIDO, ele desenhado solido, caso contrario, apenas
+     * eh desenhado o contorno da forma.*/
     public void circulo(int x, int y, int l, int a, Estilo estilo){
     	if(estilo == Estilo.PREENCHIDO){
     		this.gc.fillOval(x, y, l, a);
@@ -95,10 +95,10 @@ public abstract class FX_CG_2D_API{
     	}
     }
     
-    /** Método para desenho de retângulos sólidos ou apenas com a linha de contorno ou apenas com os vértices.
-     * O retângulo é desenhado nas coordenadas [x,y], com largura l e altura a. Se o parâmetro estilo for 
-     * Estilo.PREENCHIDO, ele desenhado sólido, se for Estilo.LINHAS serão desenhadas as linhas 
-     * de contorno da forma, e se for Estilo.PONTOS, serão desenhados apenas os vértices da forma.*/     
+    /** Metodo para desenho de retangulos solidos ou apenas com a linha de contorno ou apenas com os vertices.
+     * O retangulo eh desenhado nas coordenadas [x,y], com largura l e altura a. Se o parametro estilo for 
+     * Estilo.PREENCHIDO, ele desenhado solido, se for Estilo.LINHAS serao desenhadas as linhas 
+     * de contorno da forma, e se for Estilo.PONTOS, serao desenhados apenas os vertices da forma.*/     
     public void retangulo(int x, int y, int l, int a, Estilo estilo){    	    	        
     	if(estilo == Estilo.PREENCHIDO){
     		this.gc.fillRect(x, y, l, a);
@@ -114,10 +114,10 @@ public abstract class FX_CG_2D_API{
     	}
     }
     
-    /** Método para desenho de retângulos sólidos ou apenas com a linha de contorno.
-     * Esse método recebe um Rectangle2D para ser desenhado. Ideal para o uso em tratamento de colisões.
-     * Se o parâmetro estilo for Estilo.PREENCHIDO, ele desenhado sólido, se for Estilo.LINHAS serão desenhadas as linhas 
-     * de contorno da forma, e se for Estilo.PONTOS, serão desenhados apenas os vértices da forma.*/
+    /** Metodo para desenho de retangulos solidos ou apenas com a linha de contorno.
+     * Esse metodo recebe um Rectangle2D para ser desenhado. Ideal para o uso em tratamento de colisoes.
+     * Se o parametro estilo for Estilo.PREENCHIDO, ele desenhado solido, se for Estilo.LINHAS serao desenhadas as linhas 
+     * de contorno da forma, e se for Estilo.PONTOS, serao desenhados apenas os vartices da forma.*/
     public void retangulo(Rectangle2D retangulo, Estilo estilo){
     	double x = retangulo.getMinX();
     	double y = retangulo.getMinY();
@@ -126,30 +126,30 @@ public abstract class FX_CG_2D_API{
     	retangulo((int)x, (int)y, (int)l, (int)a, estilo);
     }
     
-    /** Método para mudar a cor de preenchimento de um objeto para a Color cor.*/
+    /** Metodo para mudar a cor de preenchimento de um objeto para a Color cor.*/
     public void preenchimento(Color cor){
     	this.gc.setFill(cor);
     }
     
-    /** Método para mudar a cor do contorno de um objeto para a Color cor.*/
+    /** Metodo para mudar a cor do contorno de um objeto para a Color cor.*/
     public void contorno(Color cor){
     	this.gc.setStroke(cor);
     }
     
-    /** Método para mudar a cor e expessura do contorno de um objeto.*/
+    /** Metodo para mudar a cor e expessura do contorno de um objeto.*/
     public void contorno(double expessura, Color cor){
     	this.gc.setStroke(cor);
     	this.gc.setLineWidth(expessura);
     }
     
-    /** Método para mudar a expessura do contorno de um objeto.*/
+    /** Metodo para mudar a expessura do contorno de um objeto.*/
     public void contorno(double expessura){
     	this.gc.setLineWidth(expessura);
     }
     
-    /** Método para desenhar uma linha que vai de [xi,yi] até [xf,yf].
-     *	Se o parâmetro estilo for Estilo.LINHAS serão desenhadas as linhas de contorno da forma, 
-     *  e se for Estilo.PONTOS, serão desenhados apenas os vértices da forma. */
+    /** Metodo para desenhar uma linha que vai de [xi,yi] ate [xf,yf].
+     *	Se o parametro estilo for Estilo.LINHAS serao desenhadas as linhas de contorno da forma, 
+     *  e se for Estilo.PONTOS, serao desenhados apenas os vertices da forma. */
     public void linha(double xi, double yi, double xf, double yf, Estilo estilo){
     	if(estilo == Estilo.PONTOS){
     		ponto(xi-1, yi-1);
@@ -163,7 +163,7 @@ public abstract class FX_CG_2D_API{
     	}
     }
     
-    /** Método para desenhar uma linha que vai de [xi,yi] até [xf,yf].*/
+    /** Metodo para desenhar uma linha que vai de [xi,yi] ate [xf,yf].*/
     public void linha(double xi, double yi, double xf, double yf){    	
     	this.gc.beginPath();
     	this.gc.moveTo(xi, yi);
@@ -173,12 +173,12 @@ public abstract class FX_CG_2D_API{
     }
 
 
-    /** Método para escrever um texto na tela, nas coordenadas [x,y], com a fonte de tamanho tam.*/
+    /** Metodo para escrever um texto na tela, nas coordenadas [x,y], com a fonte de tamanho tam.*/
     public void texto(String texto, double x, double y, int tam){
     	texto(texto, x, y, tam, FontWeight.NORMAL);
     }
     
-    /** Método para escrever um texto na tela, nas coordenadas [x,y], com a fonte de tamanho tam e tipo tipo.*/
+    /** Metodo para escrever um texto na tela, nas coordenadas [x,y], com a fonte de tamanho tam e tipo tipo.*/
     public void texto(String texto, double x, double y, int tam, FontWeight tipo){
         Font fonte = Font.font("Times New Roman", tipo, tam);
         this.gc.setFont(fonte);
@@ -186,44 +186,44 @@ public abstract class FX_CG_2D_API{
         this.gc.strokeText(texto, x, y);
     }
     
-    /** Método para detectar a colisão entre dois retângulos.*/
+    /** Metodo para detectar a colisao entre dois retangulos.*/
     public boolean colisao(Rectangle2D objeto1, Rectangle2D objeto2){    	
     	return objeto1.intersects(objeto2);     
     }
     
-    /** Método para detectar a colisão entre duas formas.*/
+    /** Metodo para detectar a colisao entre duas formas.*/
     public boolean colisao(double xP1, double yP1, double xP2, double yP2, double larguraP1, double alturaP1, double larguraP2, double alturaP2){
     	Rectangle2D objeto1 = new Rectangle2D(xP1, yP1, larguraP1, alturaP1);
     	Rectangle2D objeto2 = new Rectangle2D(xP2, yP2, larguraP2, alturaP2);
     	return objeto1.intersects(objeto2);     
     }    
     
-    /** Método para rotacionar um objeto em ang graus.*/
+    /** Mï¿½todo para rotacionar um objeto em ang graus.*/
     public void rotacionar(double ang){
     	this.gc.rotate(ang);        
     }
     
-    /** Método para transladar um objeto para as coordenadas [x,y].*/
+    /** Metodo para transladar um objeto para as coordenadas [x,y].*/
     public void transladar(double x, double y){
     	this.gc.translate(x,  y);        
     }
     
-    /** Método para aplicar a transformação de escala em um objeto nas coordenadas x e y.*/
+    /** Metodo para aplicar a transformacao de escala em um objeto nas coordenadas x e y.*/
     public void escalar(double x, double y){
     	this.gc.scale(x, y);
     }
     
-    /** Método para desenhar uma imagem na tela. Pode ser usado em conjunto com um Rectangle2D para colisão.*/
+    /** Metodo para desenhar uma imagem na tela. Pode ser usado em conjunto com um Rectangle2D para colisao.*/
     public void imagem(Image img, double x, double y){
     	this.gc.drawImage(img, x, y);
     }
     
-    /** Método para empilhar uma transformação.*/
+    /** Metodo para empilhar uma transformacao.*/
     public void empilhar(){
     	this.gc.save();
     }
     
-    /** Método para desempilhar uma transformação.*/
+    /** Metodo para desempilhar uma transformacao.*/
     public void desempilhar(){
     	this.gc.restore();
     }
@@ -233,17 +233,17 @@ public abstract class FX_CG_2D_API{
         this.desenhar();
     }
 
-    /** Método para retomar o jogo pausado.*/
+    /** Metodo para retomar o jogo pausado.*/
     public void retomar() {
     	this.loop.play();
     }
 
-    /** Método para pausar o jogo.*/
+    /** Metodo para pausar o jogo.*/
     public void parar() {
     	this.loop.pause();
     }
 
-    /** Método para pausar o jogo.*/
+    /** Metodo para pausar o jogo.*/
     public void resetar() {
     	this.loop.stop();
     	this.loop.playFromStart();
@@ -258,30 +258,30 @@ public abstract class FX_CG_2D_API{
         return t;
     }    
         
-    /** Método para tratar eventos de tecla pressionada do teclado.*/
+    /** Mï¿½todo para tratar eventos de tecla pressionada do teclado.*/
     public abstract void teclaPressionada(KeyEvent e);
     
-    /** Método para tratar eventos de tecla liberada do teclado.*/
+    /** Mï¿½todo para tratar eventos de tecla liberada do teclado.*/
     public abstract void teclaLiberada(KeyEvent e);
     
-    /** Método para tratar eventos de tecla digitada do teclado.*/
+    /** Mï¿½todo para tratar eventos de tecla digitada do teclado.*/
     public abstract void teclaDigitada(KeyEvent e);
     
-    /** Método para tratar eventos de clique do mouse.*/
+    /** Mï¿½todo para tratar eventos de clique do mouse.*/
     public abstract void cliqueDoMouse(MouseEvent e);
     
-    /** Método para tratar eventos de movimento do mouse.*/
+    /** Mï¿½todo para tratar eventos de movimento do mouse.*/
     public abstract void movimentoDoMouse(MouseEvent e);
     
-    /** Método chamado continuamente para atualizar valores e realizar cálculos necessários para o jogo.*/
+    /** Mï¿½todo chamado continuamente para atualizar valores e realizar cï¿½lculos necessï¿½rios para o jogo.*/
     public abstract void atualizar();
 
-    /** Método chamado continuamente para desenhar na tela.*/
+    /** Mï¿½todo chamado continuamente para desenhar na tela.*/
     public abstract void desenhar();
     
-    /** Método para iniciar o jogo, no Stage Cena, com o nome nomeJogo. */
+    /** Mï¿½todo para iniciar o jogo, no Stage Cena, com o nome nomeJogo. */
     public void iniciar(Stage cena, final String nomeJogo) {
-		// Inicializações do JavaFX para iniciar o jogo.
+		// Inicializacoes do JavaFX para iniciar o jogo.
         cena.resizableProperty().setValue(Boolean.FALSE);
         cena.setScene(new Scene(new StackPane(this.canvas)));
         cena.setTitle(nomeJogo);

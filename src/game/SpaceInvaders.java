@@ -17,14 +17,14 @@ public class SpaceInvaders extends Application{
 	public static void main(String[] args) {
 		launch(args);
 	}
-	
+		
 	@Override
 	public void start(Stage cena){						
 		
 		final int largura = 600, altura = 400, fps = 100;
         final String nomeJogo = "Space Invaders";
         
-        // Criação do jogo
+        // Criacao do jogo
         FX_CG_2D_API jogo = new FX_CG_2D_API(fps, largura, altura) {
     
         	int x = -50;
@@ -37,16 +37,14 @@ public class SpaceInvaders extends Application{
         	LinkedList<Shoot> shoots = new LinkedList<Shoot>();
         
 			
-        	// Método que desenha os objetos do jogo. Chamado continuamente.
+        	// Metodo que desenha os objetos do jogo. Chamado continuamente.
 			@Override
 			public void desenhar() {
 
-				preenchimento(Color.WHITE);
+				preenchimento(Color.BLACK);
                 retangulo(0, 0, largura, altura, Estilo.PREENCHIDO);                           	
-                                          
                           
                 empilhar();
-                	
                 	transladar(largura/2, altura/2);
                 	contorno(3, Color.BLUE);
                 	preenchimento(Color.BLUE);
@@ -65,8 +63,8 @@ public class SpaceInvaders extends Application{
                 
 			}
 
-            // Método chamado continuamente no loop do jogo. 
-			// Usado pra atualizar valores e fazer cálculos de posições, etc...
+            // Metodo chamado continuamente no loop do jogo. 
+			// Usado pra atualizar valores e fazer cï¿½lculos de posicoes, etc...
 			@Override
 			public void atualizar() {
 					if(shoot) {							
